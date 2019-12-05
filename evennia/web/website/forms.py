@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.forms import ModelForm
 from django.utils.html import escape
 from evennia.utils import class_from_module
-
+from django.utils.translation import ugettext as _
 
 class EvenniaForm(forms.Form):
     """
@@ -63,7 +63,7 @@ class AccountForm(UserCreationForm):
     # Username is collected as part of the core UserCreationForm, so we just need
     # to add a field to (optionally) capture email.
     email = forms.EmailField(
-        help_text="A valid email address. Optional; used for password resets.", required=False
+        help_text=_("A valid email address. Optional; used for password resets."), required=False
     )
 
 
